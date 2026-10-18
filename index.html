@@ -1,165 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> GUJRATI TRADER - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow">
+    <title>STOCK LEARNERS - Stock Market Learning & Insights</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-  }
-
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
-  }
-
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-  }
-
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
-  }
-
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-  }
-
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
-  }
-
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
-  }
-
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
-  }
-</style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            emerald: '#10b981',
+                            blue: '#3b82f6',
+                            darkBg: '#0b0f19',
+                            cardBg: '#111827',
+                            border: '#1f2937'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(16, 185, 129, 0.3)' },
+                            '50%': { boxShadow: '0 0 25px rgba(16, 185, 129, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom scrollbar for modals */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111827;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 3px;
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-100 min-h-screen flex flex-col justify-between items-center px-4 py-6 sm:py-10 select-none">
 
-<div class="card">
-  <img src="https://i.ibb.co/GQYGXHF4/In-Shot-20260927-223648191.jpg" alt=" GUJRATI TRADER" class="profile-img">
+    <!-- Top Live Status Badge -->
+    <div class="w-full max-w-sm flex justify-center mb-4">
+        <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-emerald-400 text-xs font-semibold tracking-wide backdrop-blur-md">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span>Educational Community Active</span>
+        </div>
+    </div>
 
-  <h1> GUJRATI TRADER</h1>
+    <!-- Main Mobile Card Container -->
+    <main class="w-full max-w-md bg-brand-cardBg/90 border border-gray-800 rounded-3xl p-6 sm:p-8 shadow-2xl backdrop-blur-xl flex flex-col items-center my-auto relative overflow-hidden">
+        
+        <!-- Ambient Glowing Background Accents -->
+        <div class="absolute -top-20 -left-20 w-40 h-40 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
-  </div>
+        <!-- Logo Frame -->
+        <div class="relative w-24 h-24 sm:w-28 sm:h-28 mb-5 rounded-full p-1 bg-gradient-to-tr from-emerald-500 via-teal-400 to-blue-500 shadow-xl shadow-emerald-500/10">
+            <img src="https://iili.io/nwKDLFt.jpg" 
+                 alt="STOCK LEARNERS Logo" 
+                 class="w-full h-full object-cover rounded-full bg-gray-900"
+                 onerror="this.onerror=null; this.src='https://placehold.co/120x120/111827/ffffff?text=SL';">
+        </div>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+        <!-- Channel Title -->
+        <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight text-center uppercase">
+            STOCK LEARNERS
+        </h1>
 
-  <a href="https://t.me/+mc6hSYTJFoU0MmRl" class="telegram-btn">JOIN TELEGRAM</a>
+        <!-- Short Subtitle -->
+        <p class="text-gray-400 text-xs sm:text-sm text-center mt-2 leading-relaxed px-2 font-normal">
+            Master Stock Market Analysis, Technical Chart Patterns & Price Action Concepts.
+        </p>
 
-  <p class="hindi-quote">     ,     </p>
+        <!-- Compliance Feature Bullet Points -->
+        <div class="w-full bg-gray-900/60 border border-gray-800/80 rounded-2xl p-4 sm:p-5 my-6 space-y-3.5 text-xs sm:text-sm text-gray-300">
+            <div class="flex items-start space-x-3">
+                <div class="mt-0.5 bg-emerald-500/20 text-emerald-400 p-1 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-check text-xs w-3.5 h-3.5 text-center"></i>
+                </div>
+                <span class="font-medium text-gray-200">Daily Educational Stock Market Insights</span>
+            </div>
+            <div class="flex items-start space-x-3">
+                <div class="mt-0.5 bg-emerald-500/20 text-emerald-400 p-1 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-check text-xs w-3.5 h-3.5 text-center"></i>
+                </div>
+                <span class="font-medium text-gray-200">Price Action & Technical Analysis Studies</span>
+            </div>
+            <div class="flex items-start space-x-3">
+                <div class="mt-0.5 bg-emerald-500/20 text-emerald-400 p-1 rounded-full flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-check text-xs w-3.5 h-3.5 text-center"></i>
+                </div>
+                <span class="font-medium text-gray-200">Market News Updates & Trend Analysis</span>
+            </div>
+        </div>
 
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
-  </div>
+        <!-- HIGH-CONVERTING SINGLE CALL TO ACTION BUTTON -->
+        <div class="w-full">
+            <a href="https://t.me/+cXSCGVNTp7ozZmI1" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full group relative inline-flex items-center justify-center bg-gradient-to-r from-emerald-500 via-teal-500 to-blue-600 hover:from-emerald-400 hover:to-blue-500 text-white font-bold py-4 px-6 rounded-2xl text-base sm:text-lg transition-all duration-300 transform active:scale-95 shadow-xl shadow-emerald-950/50 animate-glow overflow-hidden">
+                
+                <!-- Shiny Reflection Effect -->
+                <div class="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-pulse"></div>
 
-  <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
-  </div>
-</div>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2552096918611818');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2552096918611818&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+                <div class="flex items-center space-x-3 relative z-10">
+                    <i class="fa-brands fa-telegram text-2xl sm:text-3xl"></i>
+                    <span class="tracking-wide">JOIN TELEGRAM CHANNEL</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Security Badge -->
+        <div class="flex items-center justify-center space-x-2 text-[11px] text-gray-400 mt-4">
+            <i class="fa-solid fa-shield-halved text-emerald-400"></i>
+            <span>100% Free Educational Access • No Fees Required</span>
+        </div>
+    </main>
+
+    <!-- Meta Ads Mandatory Footer Section -->
+    <footer class="w-full max-w-md text-center text-xs text-gray-500 space-y-4 mt-6 pt-4 border-t border-gray-800/80">
+        
+        <!-- Mandatory SEBI / Financial Disclaimer -->
+        <p class="leading-relaxed text-[11px] text-gray-400/90 px-2">
+            <strong class="text-gray-300 font-semibold">Disclaimer:</strong> We are NOT SEBI registered. All content shared on this Telegram channel is purely for educational, informational, and learning purposes only. We do not provide financial advice, stock tips, buy/sell calls, or guaranteed return schemes. Trading and investing in stock markets involve substantial risk.
+        </p>
+
+        <!-- Compliance Modals Trigger Links -->
+        <div class="flex justify-center items-center space-x-3 text-gray-400 text-xs font-medium">
+            <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors underline decoration-gray-700 underline-offset-4">Privacy Policy</button>
+            <span class="text-gray-700">•</span>
+            <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors underline decoration-gray-700 underline-offset-4">Terms of Service</button>
+            <span class="text-gray-700">•</span>
+            <button onclick="openModal('contactModal')" class="hover:text-emerald-400 transition-colors underline decoration-gray-700 underline-offset-4">Contact Us</button>
+        </div>
+
+        <!-- Agency Branding Tag -->
+        <div class="pt-1">
+            <a href="https://t.me/+3XoqJNLxYHswNTc1" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="inline-flex items-center space-x-2 bg-gray-900/80 hover:bg-gray-800 border border-gray-800 hover:border-emerald-500/50 px-3.5 py-1.5 rounded-full text-gray-400 hover:text-emerald-400 transition-all text-xs font-medium shadow-sm">
+                <i class="fa-solid fa-bullhorn text-emerald-400 text-xs"></i>
+                <span>Ads By <strong class="text-gray-200 group-hover:text-emerald-400">AD BUILD AGENCY</strong></span>
+            </a>
+        </div>
+
+        <!-- Facebook Meta Platform Disclaimer -->
+        <p class="text-[10px] text-gray-600 leading-normal">
+            © 2026 STOCK LEARNERS. All rights reserved.<br>
+            This website is not part of the Facebook website or Meta Platforms, Inc. Additionally, this site is NOT endorsed by Meta Platforms, Inc. in any way.
+        </p>
+    </footer>
+
+    <!-- MODALS FOR META COMPLIANCE -->
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
+                <h3 class="font-bold text-white text-base">Privacy Policy</h3>
+                <button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white text-lg px-2"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-4 overflow-y-auto text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p><strong>1. Information Collection:</strong> STOCK LEARNERS does not collect personal identity information on this landing page. Accessing our Telegram channel is governed by Telegram's standard privacy policies.</p>
+                <p><strong>2. External Links:</strong> Clicking the join button redirects you to the official Telegram application or site.</p>
+                <p><strong>3. Use of Data:</strong> We do not sell, rent, or trade user data to third parties.</p>
+                <p><strong>4. Consent:</strong> By using our website and joining our educational channel, you hereby consent to our Privacy Policy.</p>
+            </div>
+            <div class="p-3 border-t border-gray-800 text-right">
+                <button onclick="closeModal('privacyModal')" class="bg-gray-800 text-gray-200 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-gray-700">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
+                <h3 class="font-bold text-white text-base">Terms of Service</h3>
+                <button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white text-lg px-2"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-4 overflow-y-auto text-xs text-gray-300 space-y-3 leading-relaxed">
+                <p><strong>1. Educational Purpose:</strong> All updates, charts, and analysis shared by STOCK LEARNERS are exclusively for educational purposes.</p>
+                <p><strong>2. Financial Risk:</strong> Stock market investment involves inherent market risks. Users are strictly advised to consult a SEBI registered financial advisor before making real investments.</p>
+                <p><strong>3. No Guarantee:</strong> STOCK LEARNERS makes no representations or warranties regarding accuracy or profitability.</p>
+            </div>
+            <div class="p-3 border-t border-gray-800 text-right">
+                <button onclick="closeModal('termsModal')" class="bg-gray-800 text-gray-200 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-gray-700">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Us Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-md w-full flex flex-col overflow-hidden shadow-2xl">
+            <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-gray-900/50">
+                <h3 class="font-bold text-white text-base">Contact Us</h3>
+                <button onclick="closeModal('contactModal')" class="text-gray-400 hover:text-white text-lg px-2"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-5 text-xs text-gray-300 space-y-4 text-center">
+                <p class="text-gray-400">For inquiries, advertising, or support, please reach out via our official agency partner on Telegram.</p>
+                <div class="bg-gray-800/80 p-3 rounded-xl border border-gray-700">
+                    <p class="text-gray-400 text-[10px] uppercase tracking-wider mb-1">Official Support Partner</p>
+                    <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank" class="text-emerald-400 font-semibold hover:underline text-sm inline-flex items-center space-x-1">
+                        <i class="fa-brands fa-telegram mr-1"></i> AD BUILD AGENCY Support
+                    </a>
+                </div>
+            </div>
+            <div class="p-3 border-t border-gray-800 text-right">
+                <button onclick="closeModal('contactModal')" class="bg-gray-800 text-gray-200 text-xs font-semibold px-4 py-2 rounded-lg hover:bg-gray-700">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Modals -->
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the box
+        window.onclick = function(event) {
+            const modals = ['privacyModal', 'termsModal', 'contactModal'];
+            modals.forEach(id => {
+                const modal = document.getElementById(id);
+                if (event.target === modal) {
+                    closeModal(id);
+                }
+            });
+        }
+    </script>
 </body>
+  
 </html>
